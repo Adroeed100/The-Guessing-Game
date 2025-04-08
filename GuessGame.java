@@ -7,15 +7,11 @@ class GuessGame {
         Random r = new Random();
         System.out.println("Welcome to the game");
 
-        int i, j, m, n;
+        int i, j, m, n,points = 50;
         char[][] arr = {{'*','*','*'},{'*','*','*'},{'*','*','*'}};
-
 
         int loseRow = r.nextInt(3);
         int loseCol = r.nextInt(3);
-
-        System.out.println("Select any row and col");
-
 
         for(i=0; i<3; i++) {
             for(j=0; j<3; j++) {
@@ -23,6 +19,8 @@ class GuessGame {
             }
             System.out.print("\n");
         }
+
+        System.out.println("Select any row and column \nCurrent points : " + points);
 
         while(true) {
             m = s.nextInt();
@@ -36,7 +34,7 @@ class GuessGame {
                     }
                     System.out.print("\n");
                 }
-                System.out.println("You Lost");
+                System.out.println("You Lost \nCurrent points : " + 0);
                 System.exit(0);
             } else {
                 arr[m][n] = '1';
@@ -46,7 +44,8 @@ class GuessGame {
                     }
                     System.out.print("\n");
                 }
-                System.out.println("You are safe");
+                points *= 2;
+                System.out.println("Current points : " + points + "\nYou are safe, Select another row and column");
             }
         }
     }
